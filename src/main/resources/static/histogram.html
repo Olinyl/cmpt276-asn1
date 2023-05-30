@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Histogram</title>
+  <link rel="stylesheet" type="text/css" href="histogram.css">
+  <script src="calculate.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="lower-bound-section" class="box-section">
+      <h1 class="red-title-font">Lower bounds</h1>
+      <div id="grade-inputs">
+        <div class="grade-input-row">
+          <label for="input-max">Max</label>
+          <input type="number" id="input-max" value="100.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-a-plus">A+</label>
+          <input type="number" id="input-a-plus" value="95.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-a">A</label>
+          <input type="number" id="input-a" value="90.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-a-minus">A-</label>
+          <input type="number" id="input-a-minus" value="85.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-b-plus">B+</label>
+          <input type="number" id="input-b-plus" value="80.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-b">B</label>
+          <input type="number" id="input-b" value="75.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-b-minus">B-</label>
+          <input type="number" id="input-b-minus" value="70.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-c-plus">C+</label>
+          <input type="number" id="input-c-plus" value="65.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-c">C</label>
+          <input type="number" id="input-c" value="60.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-c-minus">C-</label>
+          <input type="number" id="input-c-minus" value="55.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-d">D</label>
+          <input type="number" id="input-d" value="50.00">
+        </div>
+        <div class="grade-input-row">
+          <label for="input-f">F</label>
+          <input type="number" id="input-f" value="0.00">
+        </div>
+      </div>
+    </div>
+    <div class="column-section">
+      <div id="histogram-section" class="box-section">
+        <h1 class="red-title-font">Histogram</h1>
+        <div id="histogram-grades">
+          <div class="histogram-grade">A+</div>
+          <div class="histogram-grade">A</div>
+          <div class="histogram-grade">A-</div>
+          <div class="histogram-grade">B+</div>
+          <div class="histogram-grade">B</div>
+          <div class="histogram-grade">B-</div>
+          <div class="histogram-grade">C+</div>
+          <div class="histogram-grade">C</div>
+          <div class="histogram-grade">C-</div>
+          <div class="histogram-grade">D</div>
+          <div class="histogram-grade">F</div>
+        </div>
+      </div>
+      <div id="new-grade-section" class="box-section">
+        <div>
+          <label for="new-grade-input">New Grade:</label>
+          <input type="text" id="new-grade-input">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
