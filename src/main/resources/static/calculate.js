@@ -28,7 +28,7 @@ function addNewGrade() {
     }
   
     // Check if the new grade is greater than the lower bound above it
-    if (currentGradeIndex > 1 && newGrade > lowerBounds[gradeKeys[currentGradeIndex - 1]]) {
+    if (currentGradeIndex > 0 && newGrade > lowerBounds[gradeKeys[currentGradeIndex - 1]]) {
       return;
     }
   

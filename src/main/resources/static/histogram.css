@@ -9,19 +9,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  height: calc(100vh - 40px);
+  height: calc(100vh - 100px);
+  margin-top: 60px;
 }
 
 .box-section {
   background-color: #e8eef0;
-  border: 1px solid #e0e7ea;
+  border: 1px solid #e3ebee;
   border-radius: 4px;
-  padding: 20px;
+  padding: 5px 20px;
   box-sizing: border-box;
+}
+
+.black-title-font {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 35%;
+  transform: translateX(-50%);
+  z-index: 9999;
 }
 
 .red-title-font {
   color: #A6192E;
+  font-size: 19px;
+  padding-bottom: 10px;
 }
 
 .column-section {
@@ -32,18 +46,20 @@ body {
 }
 
 #lower-bound-section {
-  flex-basis: 30%; /* Adjusted the flex-basis value */
-  margin-right: 12px; /* Add a margin between the sections */
+  flex-basis: 30%;
+  margin-right: 12px;
+  margin-bottom: 20px;
 }
 
 #histogram-section {
-  flex-basis: 65%; /* Adjusted the flex-basis value to make the histogram wider */
+  flex-basis: 65%; 
+  margin-bottom: 12px;
 }
 
 #new-grade-section {
-  flex-basis: 33%; /* Adjusted the flex-basis value */
+  flex-basis: 33%; 
+  margin-bottom: 20px;
 }
-
 
 .histogram-grade {
   font-size: 16px;
@@ -71,6 +87,7 @@ body {
 #new-grade-input {
   width: 50%;
   padding: 5px;
+  margin-top: 10px;
 }
 
 .grade-input-row {
