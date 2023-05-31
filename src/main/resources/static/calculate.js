@@ -73,14 +73,21 @@ function calculateGradeCounts() {
     gradeCounts[grade] = 0;
   }
 
+  var maxLowerBound = parseFloat(document.getElementById("input-max").value);
+
   // Count grades in each range
   for (var i = 0; i < grades.length; i++) {
     var grade = getGrade(grades[i], lowerBounds);
-    gradeCounts[grade]++;
+
+    // Exclude grades that exceed the maximum lower bound
+    if (grades[i] <= maxLowerBound && grade !== "") {
+      gradeCounts[grade]++;
+    }
   }
 
   return gradeCounts;
 }
+
 
 // Function to get the lower bounds for each grade
 function getLowerBounds() {
@@ -131,7 +138,7 @@ function LowerBoundsChange() {
 // Add event listeners to lower bounds input elements
 var lowerBoundElements = document.querySelectorAll("#lower-bound-section input[type='number']");
 lowerBoundElements.forEach(function(element) {
-  element.addEventListener("change", LowerBoundsChange);
+  element.addEventListener("input", LowerBoundsChange);
 });
 
 // Initial histogram update
