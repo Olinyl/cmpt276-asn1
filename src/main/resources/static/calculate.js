@@ -10,22 +10,33 @@ newGradeInput.addEventListener("keyup", function(event) {
 
 // Function to add a new grade to the grades array
 function addNewGrade() {
-  var newGrade = newGradeInput.value;
-  if (!isNaN(newGrade)) {
+    var newGrade = parseFloat(newGradeInput.value);
+    if (isNaN(newGrade) || newGrade === "") {
+      return; // Empty input or invalid grade
+    }
+  
     var lowerBounds = getLowerBounds();
     var gradeKeys = Object.keys(lowerBounds);
     var currentGradeIndex = gradeKeys.indexOf(event.target.id.replace('input-', ''));
+    // Get the smallest and largest lower bounds
+    var smallestLowerBound = lowerBounds[gradeKeys[gradeKeys.length - 1]];
+    var largestLowerBound = parseFloat(document.getElementById("input-max").value); // Max is not included in the Lower Bound Grades
 
+    // Check if the new grade is smaller than the smallest lower bound or larger than the largest lower bound
+    if (newGrade < smallestLowerBound || newGrade > largestLowerBound) {
+        return;
+    }
+  
     // Check if the new grade is greater than the lower bound above it
-    if (currentGradeIndex > 0 && newGrade > lowerBounds[gradeKeys[currentGradeIndex - 1]]) {
+    if (currentGradeIndex > 1 && newGrade > lowerBounds[gradeKeys[currentGradeIndex - 1]]) {
       return;
     }
-
+  
     grades.push(newGrade);
     updateHistogram();
     newGradeInput.value = "";
   }
-}
+  
 
 // Function to update the histogram based on the current grades array
 function updateHistogram() {
@@ -43,10 +54,10 @@ function updateHistogram() {
     gradeLabel.textContent = grade; // Grade label
     gradeElement.appendChild(gradeLabel);
 
-    var countElement = document.createElement("span");
-    countElement.className = "count";
-    countElement.textContent = 'O'.repeat(count); // 'O' representation
-    gradeElement.appendChild(countElement);
+    var barElement = document.createElement("div");
+    barElement.className = "bar";
+    barElement.style.width = count * 6 + "%"; // Set the width of the bar based on count
+    gradeElement.appendChild(barElement);
 
     histogramGrades.appendChild(gradeElement);
   }
@@ -101,7 +112,7 @@ function getGrade(score, lowerBounds) {
 }
 
 // Function to handle lower bounds change event
-function handleLowerBoundsChange() {
+function LowerBoundsChange() {
   var lowerBoundElements = document.querySelectorAll("#lower-bound-section input[type='number']");
   var previousValue = Infinity; // Initialize previous value as positive infinity
 
@@ -120,7 +131,7 @@ function handleLowerBoundsChange() {
 // Add event listeners to lower bounds input elements
 var lowerBoundElements = document.querySelectorAll("#lower-bound-section input[type='number']");
 lowerBoundElements.forEach(function(element) {
-  element.addEventListener("change", handleLowerBoundsChange);
+  element.addEventListener("change", LowerBoundsChange);
 });
 
 // Initial histogram update

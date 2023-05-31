@@ -8,11 +8,12 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  height: calc(100vh - 40px); 
+  align-items: stretch;
+  height: calc(100vh - 40px);
 }
 
 .box-section {
-  background-color: #dde6e9;
+  background-color: #e8eef0;
   border: 1px solid #e0e7ea;
   border-radius: 4px;
   padding: 20px;
@@ -31,25 +32,18 @@ body {
 }
 
 #lower-bound-section {
-  flex-basis: 33.33%; 
-  margin-right: 20px;
+  flex-basis: 30%; /* Adjusted the flex-basis value */
+  margin-right: 12px; /* Add a margin between the sections */
 }
 
 #histogram-section {
-  flex-basis: calc(33.33% - 20px); 
-  margin-top: 0;
-  margin-bottom: 20px;
+  flex-basis: 65%; /* Adjusted the flex-basis value to make the histogram wider */
 }
 
 #new-grade-section {
-  flex-basis: calc(33.33% - 20px); 
-  margin-top: auto;
-  margin-bottom: 0;
+  flex-basis: 33%; /* Adjusted the flex-basis value */
 }
 
-#histogram-grades {
-  margin-top: 20px;
-}
 
 .histogram-grade {
   font-size: 16px;
@@ -69,6 +63,10 @@ body {
   display: inline-block;
 }
 
+.bar {
+  background-color: #A6192E;
+  height: 10px;
+}
 
 #new-grade-input {
   width: 50%;
@@ -76,17 +74,17 @@ body {
 }
 
 .grade-input-row {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
 
 .grade-input-row label {
-  margin-right: 120px;
+  margin-right: 100px;
   min-width: 40px;
 }
 
 .grade-input-row input[type="number"] {
   width: 60px;
+  height: 25px;
 }
-
